@@ -14,8 +14,6 @@ import os
 import sys
 
 from src.extractor import extraire_texte_pdf
-from src.workflow import executer_workflow, sauvegarder_markdown
-from src.storage import publier_sur_minio, commiter_markdown, versionner_pdf_dvc
 
 
 def parse_args() -> argparse.Namespace:
@@ -128,6 +126,9 @@ def main() -> None:
     if args.extract_only:
         batch_extract(args.bg_rules_dir, args.output_rules_dir)
         return
+
+    from src.workflow import executer_workflow, sauvegarder_markdown
+    from src.storage import publier_sur_minio, commiter_markdown, versionner_pdf_dvc
 
     if not args.pdf:
         print("[Erreur] Fournissez un fichier PDF ou utilisez --extract-only.", file=sys.stderr)
