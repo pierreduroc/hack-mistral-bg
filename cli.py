@@ -103,6 +103,11 @@ def batch_extract(bg_rules_dir: str, output_rules_dir: str) -> None:
         nom = os.path.splitext(filename)[0]
         output_path = os.path.join(output_rules_dir, f"{nom}.txt")
 
+        if os.path.isfile(output_path):
+            print(f"  → {filename} ... skipped (already extracted)")
+            ok += 1
+            continue
+
         print(f"  → {filename} ...", end=" ", flush=True)
         try:
             texte = extraire_texte_pdf(pdf_path)
