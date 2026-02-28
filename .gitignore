@@ -1,0 +1,35 @@
+# Virtual environment
+.venv/
+
+# PDF source files (large assets, not versioned in git)
+bg_rules/
+
+# Extracted text output
+output_rules/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Environment variables
+.env
+.env.*
+
+# DVC
+/outputs/
+.dvc/tmp/
+.dvc/cache/
+
+# Streamlit
+.streamlit/secrets.toml
+
+# OS
+.DS_Store
+Thumbs.db
